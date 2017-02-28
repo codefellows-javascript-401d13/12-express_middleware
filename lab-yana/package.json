@@ -1,0 +1,30 @@
+{
+  "name": "lab-yana",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfule.js",
+  "scripts": {
+    "test": "DEBUG='blog*' mocha",
+    "start": "DEBUG='blog*' node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^4.0.1",
+    "mocha": "^3.2.0",
+    "superagent": "^3.5.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.16.1",
+    "debug": "^2.6.1",
+    "express": "^4.14.1",
+    "mkdirp": "^0.5.1",
+    "morgan": "^1.8.1",
+    "node-uuid": "^1.4.7"
+  }
+}

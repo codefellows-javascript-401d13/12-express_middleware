@@ -35,6 +35,9 @@ Sneaker.updateSneaker = function() {
 
 };
 
-Sneaker.deleteSneaker = function() {
+Sneaker.deleteSneaker = function(id) {
+  debug('deleteSneaker');
 
+  return storage.deleteItem('sneaker', id)
+  .catch( err => Promise.reject(err));
 };

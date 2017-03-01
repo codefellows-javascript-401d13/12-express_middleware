@@ -15,7 +15,15 @@ const exampleSneaker = {
 describe('Sneaker Routes', function() {
   describe('POST: /api/sneaker', function() {
     describe('with a valid request body', function() {
-      it('should return a sneaker', function(done) {
+      after( done => {
+        if (this.tempSneaker) {
+          Sneaker.deleteSneaker(this.tempSneaker.id)
+          .then( () => done())
+          .catch( err => done(err));
+        }
+      });
+
+      it('should return a sneaker', done => {
         request.post(`${url}/api/sneaker`)
         .send(exampleSneaker)
         .end((err, res) => {
@@ -23,7 +31,7 @@ describe('Sneaker Routes', function() {
           expect(res.status).to.equal(200);
           expect(res.body.model).to.equal(exampleSneaker.model);
           expect(res.body.brand).to.equal(exampleSneaker.brand);
-          // NOTE: set up temp variable for deleteSneaker
+          this.tempSneaker = res.body;
           done();
         });
       });

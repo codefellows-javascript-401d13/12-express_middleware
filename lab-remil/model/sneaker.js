@@ -51,3 +51,9 @@ Sneaker.deleteSneaker = function(id) {
 
   return storage.deleteItem('sneaker', id);
 };
+
+Sneaker.availSneakers = function() {
+  debug('availSneakers');
+
+  return storage.availIDs('sneaker');
+};

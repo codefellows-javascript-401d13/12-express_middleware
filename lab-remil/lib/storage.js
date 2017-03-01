@@ -45,3 +45,13 @@ exports.deleteItem = function(schemaName, id) {
   return fs.unlinkProm(`${__dirname}/../data/${schemaName}/${id}.json`)
   .catch ( err => Promise.reject(createError(404, err.message)));
 };
+
+exports.availIDs = function(schemaName) {
+  debug('availIDs');
+
+  if (!schemaName) return Promise.reject(createError(400, 'expected schema name'));
+
+  return fs.readdirProm(`${__dirname}/../data/${schemaName}`)
+  .then( files => files.map( name => name.split('.json')[0]))
+  .catch( err => Promise.reject(404, err.message));
+};

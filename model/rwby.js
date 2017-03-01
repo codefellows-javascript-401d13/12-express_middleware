@@ -23,13 +23,13 @@ Rwby.createRwby = function(_rwby){
     let rwby = new Rwby(_rwby.name, _rwby.weapon, _rwby.symbol);
     return storage.createItem('rwby', rwby);
   } catch (err) {
-    return Promise.reject(err);
+    return Promise.reject(createError(400, err.message));
   }
 };
 
 Rwby.fetchRwby = function(id){
   debug('Fetch RWBY');
-  storage.fetchItem('rwby', id);
+  return storage.fetchItem('rwby', id);
 };
 
 Rwby.updateRwby = function(id, _rwby){

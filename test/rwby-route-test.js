@@ -90,8 +90,8 @@ describe('Rwby Routes', function(){
         }
       });
       it(' should return a rwby', done => {
-        let updateRwby = {name :'new name', content : 'new content'};
-        request.put(`${url}/api/rwby?id=${this.tempRwby.id}`)
+        let updateRwby = {name :'Nora Valkyrie', weapon : 'Hammer', symbol : 'hammer cross thunder'};
+        request.put(`${url}/api/rwby/${this.tempRwby.id}`)
         .send(updateRwby)
         .end((err, res) => {
           if(err) return done(err);

@@ -22,7 +22,7 @@ rwbyRouter.get('/api/rwby/:id', function(req, res, next){
   .catch( err => next(err));
 });
 
-rwbyRouter.put('/api/rwby/:id', function(req, res, next){
+rwbyRouter.put('/api/rwby/:id', jsonParser, function(req, res, next){
   debug('put api/rwby/:id');
 
   Rwby.updateRwby(req.params.id, req.body)
@@ -30,7 +30,7 @@ rwbyRouter.put('/api/rwby/:id', function(req, res, next){
   .catch(next);
 });
 
-rwbyRouter.get('/api/rwby', jsonParser, function(req, res, next){
+rwbyRouter.get('/api/rwby', function(req, res, next){
   debug('get api/rwby');
 
   Rwby.fetchIDs()

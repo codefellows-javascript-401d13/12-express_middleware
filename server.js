@@ -3,13 +3,17 @@
 const morgan = require('morgan');
 const express = require('express');
 const createError = require('http-errors');
-const debug = require('debug')('note:server');
+const debug = require('debug')('blog:server');
 
+const blogRouter = require('./route/blog-router.js');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(morgan('dev'));
+app.use(cors);
+app.use(blogRouter);
+app.use(errors);
 
 app.listen(PORT, () => {
-  debug(`server up: ${PORT}`);
-});
+  console.log(`server up: ${PORT}`);
+ });

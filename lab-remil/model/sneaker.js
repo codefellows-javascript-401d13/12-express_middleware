@@ -27,8 +27,10 @@ Sneaker.createSneaker = function(_sneaker) {
   }
 };
 
-Sneaker.fetchSneaker = function() {
+Sneaker.fetchSneaker = function(id) {
+  debug('fetchSneaker');
 
+  return storage.fetchItem('sneaker', id);
 };
 
 Sneaker.updateSneaker = function() {
@@ -38,6 +40,5 @@ Sneaker.updateSneaker = function() {
 Sneaker.deleteSneaker = function(id) {
   debug('deleteSneaker');
 
-  return storage.deleteItem('sneaker', id)
-  .catch( err => Promise.reject(err));
+  return storage.deleteItem('sneaker', id);
 };

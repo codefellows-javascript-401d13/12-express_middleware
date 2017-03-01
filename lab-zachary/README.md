@@ -47,11 +47,12 @@ $ DELETE localhost:8000/api/bike/sample-id #deletes the bike file from server st
 
 Sending the following requests to the server will have the results below:
 
-* `GET`:  404 response with 'not found' for valid requests made with an id that was not found
- * `GET`: 400 response with 'bad request' if no id was provided in the request
+ * `GET`:  404 response with 'not found' for valid requests made with an id that was not found
+ * `GET`: 200 response with an array of all ids if no id was provided in the request
  * `GET`: 200 response with a response body for a request made with a valid id
  * `POST`: 400 response with 'bad request' if no request body was provided or the body was invalid
- * `POST`: 400 response with the body content for a post request with a valid body
-
+ * `POST`: 200 response with the body content for a post request with a valid body
+ * `PUT`: 200 response with body content if a put request was made with an valid id and properly formatted body content
+ * `PUT`: 400 response with 'bad request' if missing or malformed body data was passed.
 [1]:https://brew.sh/
 

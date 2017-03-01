@@ -25,7 +25,7 @@ describe('Family Routes', function() {
 
     after( done => {
       Family.deleteFamily(this.tempFamily.id)
-      .done( () => done())
+      .then( () => done())
       .catch( err => done(err));
     });
 
@@ -34,8 +34,9 @@ describe('Family Routes', function() {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).to.equal(200);
-        expect(res.name).to.equal(this.tempFamily.name);
-        expect(res.relation).to.equal(this.tempFamily.relation);
+        expect(res.body.id).to.equal(this.tempFamily.id);
+        expect(res.body.name).to.equal(this.tempFamily.name);
+        expect(res.body.relation).to.equal(this.tempFamily.relation);
         done();
       });
     });

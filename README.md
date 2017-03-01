@@ -29,15 +29,15 @@ Install and use the HTTPie library to make a POST request to the API:
 
 ```sh
 $ brew install httpie
-$ http POST :3000/api/bike brand="rodriguez" type="sweet fixie brah"
+$ http POST :3000/api/family name="bernard" type="drunk uncle"
 ```
 To GET the records you've created, you'll first need to copy & past their unique ID:
 ```
-$ http :3000/api/bike/<paste unique id here>
+$ http :3000/api/family/<paste unique id here>
 ```
 And if you want to DELETE it:
 ```
-$ http DELETE :3000/api/bike/<paste id to delete here>
+$ http DELETE :3000/api/family/<paste id to delete here>
 ```
 
 Passing 4 tests on 3 defined routes (POST, GET, PUT). DELETE being used to keep filesystem clean during testing.

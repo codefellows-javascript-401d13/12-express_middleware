@@ -1,6 +1,6 @@
 'use strict';
 
-const expect = require('chai').expect();
+const expect = require('chai').expect;
 const request = require('superagent');
 const Food = require('../model/food.js');
 const url = 'http://localhost:8000';
@@ -33,9 +33,9 @@ describe('Food Routes', function() {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).to.equal(200);
-        // expect(res.body.id).to.equal(this.tempFood.id);
-        // expect(res.body.name).to.equal(this.tempFood.name);
-        // expect(res.body.meal).to.equal(this.tempFood.meal);
+        expect(res.body.id).to.equal(this.tempFood.id);
+        expect(res.body.name).to.equal(this.tempFood.name);
+        expect(res.body.meal).to.equal(this.tempFood.meal);
         done();
       });
     });
@@ -57,7 +57,6 @@ describe('Food Routes', function() {
           .then( () => done())
           .catch( err => done(err));
         }
-        done();
       });
 
 
@@ -67,8 +66,8 @@ describe('Food Routes', function() {
         .end((err, res) => {
           if(err) return done(err);
           expect(res.status).to.equal(200);
-          // expect(res.body.name).to.equal(exampleFood.name);
-          // expect(res.body.meal).to.equal(exampleFood.meal);
+          expect(res.body.name).to.equal(exampleFood.name);
+          expect(res.body.meal).to.equal(exampleFood.meal);
           this.tempFood = res.body;
           done();
         });
@@ -99,10 +98,10 @@ describe('Food Routes', function() {
         .end((err, res) => {
           if(err) return done(err);
           expect(res.status).to.equal(200);
-          // expect(res.body.id).to.equal(this.tempFood.id);
-          // for (var prop in updateFood) {
-            // expect(res.body[prop]).to.equal(updateFood[prop]);
-          // }
+          expect(res.body.id).to.equal(this.tempFood.id);
+          for (var prop in updateFood) {
+            expect(res.body[prop]).to.equal(updateFood[prop]);
+          }
           done();
         });
       });

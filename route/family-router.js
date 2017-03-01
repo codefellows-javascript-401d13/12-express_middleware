@@ -30,7 +30,7 @@ familyRouter.get('/api/family', function(req, res, next) {
   .catch (err => next(err));
 });
 
-familyRouter.put('/api/family/:id', function(req, res, next) {
+familyRouter.put('/api/family/', jsonParser, function(req, res, next) {
   debug('PUT: api/family');
 
   Family.updateFamily(req.query.id, req.body)

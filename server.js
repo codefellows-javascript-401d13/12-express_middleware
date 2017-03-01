@@ -4,7 +4,7 @@ const express = require('express');
 const debug = require('debug')('rwby:server');
 const morgan = require('morgan');
 
-const noteRouter = require('./route/rwby-router.js');
+const rwbyRouter = require('./route/rwby-router.js');
 const error = require('./lib/error-middleware.js');
 const cors = require('./lib/cors-middleware.js');
 
@@ -13,7 +13,7 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(cors);
-app.use(noteRouter);
+app.use(rwbyRouter);
 app.use(error);
 
 

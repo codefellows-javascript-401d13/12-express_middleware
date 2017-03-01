@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "DEBUG='note*' mocha"
-    "start": "DEBUG='note*' node server.js"
+    "test": "DEBUG='rwby*' mocha",
+    "start": "DEBUG='rwby*' node server.js"
   },
   "repository": {
     "type": "git",

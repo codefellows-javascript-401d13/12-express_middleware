@@ -1,6 +1,8 @@
 # Created by https://www.gitignore.io/api/node,osx,windows,linux
 ### Linux ###
 *~
+#ignore data file
+data/
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 # KDE directory preferences

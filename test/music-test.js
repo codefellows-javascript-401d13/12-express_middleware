@@ -5,7 +5,7 @@ const expect = require('chai').expect;
 const Music = require('../model/music.js');
 const url = 'http://localhost:8000';
 
-require('../server.js');
+// require('../server.js');
 
 const exampleMusic = {
   genre: 'example genre',

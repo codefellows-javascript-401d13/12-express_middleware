@@ -31,11 +31,20 @@ musicRouter.get('api/music', function( req, res, next) {
 });
 
 
-musicRouter.put('/api/music', jsonParser, function(req, res, next) {
+musicRouter.put('/api/music?=id', jsonParser, function(req, res, next) {
   debug('PUT: /api/music');
 
   Music.updateMusic(req.query.id, req.body)
     .then( music => res.json(music))
+    .catch(next);
+});
+
+
+musicRouter.delete('/api/music', function(req, res) {
+  debug('DELETE: /api/music');
+
+  Music.deleteMusic(req.params.id, req.body)
+   .then( music => res.json(music))
     .catch(next);
 });
 

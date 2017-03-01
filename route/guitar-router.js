@@ -1,6 +1,6 @@
 'use strict';
 
-const Router = require('express').router;
+const Router = require('express').Router;
 const jsonParser = require('body-parser').json();
 const debug = require('debug');
 const Guitar = require('../model/guitar.js');
@@ -31,9 +31,10 @@ guitarRouter.get('/api/guitar/:id', function(req, res, next) {
   .catch( err => next(err));
 });
 
-guitarRouter.put('/api/guitar/:id', function(req, res, next) {
+guitarRouter.put('/api/guitar/:id', jsonParser, function(req, res, next) {
   debug('PUT: api/guitar/:id');
 
+  console.log('request params.id and body', req.params.id, req.body);
   Guitar.updateGuitar(req.params.id, req.body)
   .then( guitar => res.json(guitar))
   .catch( err => next(err));

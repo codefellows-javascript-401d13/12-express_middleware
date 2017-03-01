@@ -37,19 +37,21 @@ Guitar.fetchGuitar = function(id) {
 
 Guitar.updateGuitar = function(id, _guitar) {
   debug('updateGuitar');
+
   return storage.fetchItem('guitar', id)
-  .then(guitar => {
-    for (var prop in guitar){
+  .catch( err => Promise.reject(createError(404, err.message)))
+  .then( guitar => {
+    for (var prop in guitar) {
       if(_guitar[prop]) guitar[prop] = _guitar[prop];
     }
-  })
-  .catch( err => Promise.reject(createError(404, err.message)));
+    return storage.createItem('guitar', guitar);
+  });
 };
 
 Guitar.deleteGuitar = function(id) {
   debug('deleteGuitar');
   try {
-    storage.deleteItem('guitar', id);
+    return storage.deleteItem('guitar', id);
   } catch (err) {
     return Promise.reject(err);
   }

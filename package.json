@@ -1,0 +1,39 @@
+{
+  "name": "12-express_middleware",
+  "version": "1.0.0",
+  "description": "![CF](https://camo.githubusercontent.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) Lab 12: Single Resource Express API ===",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "DEBUG='note*' node server.js",
+    "test": "DEBUG='note*' ./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sueanyv/12-express_middleware.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sueanyv/12-express_middleware/issues"
+  },
+  "homepage": "https://github.com/sueanyv/12-express_middleware#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.16.1",
+    "debug": "^2.6.1",
+    "express": "^4.14.1",
+    "http-errors": "^1.6.1",
+    "mkdirp": "^0.5.1",
+    "morgan": "^1.8.1",
+    "node-uuid": "^1.4.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "superagent": "^3.5.0"
+  }
+}

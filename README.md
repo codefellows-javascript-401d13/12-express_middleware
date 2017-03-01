@@ -3,7 +3,7 @@
 
 ### Single Resource API
 
-This single resource API uses the Express framework along with other native Node modules to help me keep track of all the members of my big family. It leverages the Bluebird promisifying library on the File System module to add a layer of persistence:
+This single resource API uses the Express framework along with other native Node modules to help me keep track of all the members of my big family. So far I have fields set up for their `name` and `relation`. It leverages the Bluebird promisifying library on the File System module to add a layer of persistence:
 
 * [markdown-it] - Markdown parser done right. Fast and easy to extend.
 * [node.js] - evented I/O for the backend
@@ -29,7 +29,7 @@ Install and use the HTTPie library to make a POST request to the API:
 
 ```sh
 $ brew install httpie
-$ http POST :3000/api/family name="bernard" type="drunk uncle"
+$ http POST :3000/api/family name="bernard" relation="drunk uncle"
 ```
 To GET the records you've created, you'll first need to copy & past their unique ID:
 ```

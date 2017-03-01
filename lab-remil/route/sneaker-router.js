@@ -24,4 +24,12 @@ sneakerRouter.post('/api/sneaker', jsonParser, function(req, res, next) {
   .catch( err => next(err));
 });
 
+sneakerRouter.put('/api/sneaker/:id', jsonParser, function(req, res, next) {
+  debug('PUT: /api/sneaker');
+
+  Sneaker.updateSneaker(req.params.id, req.body)
+  .then( sneaker => res.json(sneaker))
+  .catch( err => next(err));
+});
+
 module.exports = sneakerRouter;

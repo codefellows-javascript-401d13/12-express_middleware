@@ -82,4 +82,40 @@ describe('Sneaker Routes', function() {
     });
   });
 
+  describe('PUT: /api/sneaker/:id', function() {
+    describe('with a valid id and body', function() {
+      before( done => {
+        Sneaker.createSneaker(exampleSneaker)
+        .then( sneaker => {
+          this.tempSneaker = sneaker;
+          done();
+        })
+        .catch( err => done(err));
+      });
+
+      after( done => {
+        if (this.tempSneaker) {
+          Sneaker.deleteSneaker(this.tempSneaker.id)
+          .then( () => done())
+          .catch( err => done(err));
+        }
+      });
+
+      it('should return an updated sneaker', done => {
+        let updateSneaker = { model: 'new model', brand: 'new brand'};
+        request.put(`${url}/api/sneaker/${this.tempSneaker.id}`)
+        .send(updateSneaker)
+        .end((err, res) => {
+          if (err) return done(err);
+          expect(res.status).to.equal(200);
+          expect(res.body.id).to.equal(this.tempSneaker.id);
+          for (let prop in updateSneaker) {
+            expect(res.body[prop]).to.equal(updateSneaker[prop]);
+          }
+          done();
+        });
+      });
+
+    });
+  });
 });

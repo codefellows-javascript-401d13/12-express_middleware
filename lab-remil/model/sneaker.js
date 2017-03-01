@@ -33,8 +33,17 @@ Sneaker.fetchSneaker = function(id) {
   return storage.fetchItem('sneaker', id);
 };
 
-Sneaker.updateSneaker = function() {
+Sneaker.updateSneaker = function(id, _sneaker) {
+  debug('updateSneaker');
 
+  return storage.fetchItem('sneaker', id)
+  .then( sneaker => {
+    for(let prop in sneaker) {
+      if (prop === 'id') continue;
+      if (_sneaker[prop]) sneaker[prop] = _sneaker[prop];
+    }
+    return storage.createItem('sneaker', sneaker);
+  });
 };
 
 Sneaker.deleteSneaker = function(id) {

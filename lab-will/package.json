@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "clear\n DEBUG='note*' ./node_modules/mocha/bin/mocha",
-    "start": "clear\n DEBUG='note*' node server.js"
+    "test": "clear\n DEBUG='cat*' ./node_modules/mocha/bin/mocha",
+    "start": "clear\n DEBUG='cat*' node server.js"
   },
   "keywords": [],
   "author": "",

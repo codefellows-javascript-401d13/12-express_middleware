@@ -20,8 +20,7 @@ Journal.createJournal = function(_journal){
   debug('createJournal');
 
   try {
-    let journal = new
-    Journal(_journal.author, _journal.entry);
+    let journal = new Journal(_journal.author, _journal.entry);
     return storage.createItem('journal', journal);
   } catch (err) {
     return Promise.reject(err);

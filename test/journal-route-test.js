@@ -76,7 +76,7 @@ describe('Journal Routes', function(){
     });
   });
 
-  describe('PUT: /api/journal', function(){
+  describe('PUT: /api/journal/', function(){
     describe('with a valid id and body', function(){
       before( done => {
         Journal.createJournal(exampleJournal)

@@ -1,0 +1,28 @@
+{
+  "name": "lab-will",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "clear\n DEBUG='cat*' ./node_modules/mocha/bin/mocha",
+    "start": "clear\n DEBUG='cat*' node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "superagent": "^3.5.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.16.1",
+    "debug": "^2.6.1",
+    "express": "^4.14.1",
+    "http-errors": "^1.6.1",
+    "mkdirp": "^0.5.1",
+    "morgan": "^1.8.1",
+    "node-uuid": "^1.4.7"
+  }
+}

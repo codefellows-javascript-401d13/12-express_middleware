@@ -1,12 +1,12 @@
-### My Fisher Price First Express API for Blogs!!!!
+### My Fisher Price Second Express API for Blogs!!!!
 
-This is a single resource API using express middleware to make creating a server and routing requests much more efficient and painless. It allows you to upload a blog entry, look at stored blog entries, see a list of available blog entries, and delete a blog entry.
+This is a single resource API using express middleware to make creating a server and routing requests much more efficient and painless. It allows you to upload a blog entry, look at stored blog entries, and see a list of available blog entries. As a dev, you can also delete a blog entry.
 
 ### Directions for Use
 
 * make sure you have [node.js and npm installed](https://docs.npmjs.com/getting-started/installing-node), then in a terminal window, clone the code:
   ```
-  $ git clone https://github.com/radenska/11-single_resource_express_api.git
+  $ git clone https://github.com/radenska/12-express_middleware.git
   ```
 
 * run npm i:
@@ -30,15 +30,12 @@ This is a single resource API using express middleware to make creating a server
     ```
     $ http :3003/api/blog
     ```
-  - delete a blog entry:
-    ```
-    $ http DELETE :3003/api/blog/blogID
-    ```
   - update a blog entry (if you don't include the id, a new entry will be created instead):
     ```
-    $ http POST :3003/api/blog id="blogID" name="new name" content="new content"
+    $ http POST :3003/api/blog?id="blogID" name="new name" content="new content"
     ```
 
 That's it!
 
-##### Created by Yana Radenska
+#### Created by Yana Radenska
+##### [_Yana's GitHub Repository_](https://github.com/radenska)

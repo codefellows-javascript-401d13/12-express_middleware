@@ -27,9 +27,9 @@ blogRouter.post('/api/blog', parseJSON, function(req, res, next) {
   .catch(next);
 });
 
-blogRouter.put('/api/blog/:id', parseJSON, function(req, res, next) {
-  debug('PUT: /api/blog/:id');
-  Blog.updateBlog(req.params.id, req.body)
+blogRouter.put('/api/blog', parseJSON, function(req, res, next) {
+  debug('PUT: /api/blog');
+  Blog.updateBlog(req.query.id, req.body)
   .then(blog => res.json(blog))
   .catch(next);
 });
@@ -37,5 +37,8 @@ blogRouter.put('/api/blog/:id', parseJSON, function(req, res, next) {
 blogRouter.delete('/api/blog/:id', function(req, res, next) {
   debug('DELETE: /api/blog/:id');
   Blog.removeBlog(req.params.id)
+  .then( () => req.params.id)
   .catch(next);
 });
+
+module.exports = blogRouter;

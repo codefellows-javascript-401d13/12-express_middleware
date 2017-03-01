@@ -1,18 +1,27 @@
 'use strict';
 
 const storage = require('../lib/storage.js');
-const randomID = require('note-uuid');
+const randomID = require('node-uuid');
 const debug = require('debug')('blog:blog');
+const createError = require('http-errors');
 
-function Blog(name, content) {
+const Blog = module.exports = function (name, content) {
+  if (!name) throw createError(400, 'name expected');
+  if (!content) throw createError(400, 'content expecte');
+
   this.id = randomID.v1();
   this.name = name;
   this.content = content;
-}
+};
 
-Blog.removeBlog = function(id) {
-  debug('removeBlog');
-  return storage.deleteItem('blog', id);
+Blog.createBlog = function(_blog) {
+  debug('createBlog');
+  try {
+    let blog = new Blog(_blog.name, _blog.content);
+    return storage.createItem('blog', blog);
+  } catch(err) {
+    return Promise.reject(createError(400, err.message));
+  }
 };
 
 Blog.fetchBlog = function(id) {
@@ -20,24 +29,26 @@ Blog.fetchBlog = function(id) {
   return storage.fetchItem('blog', id);
 };
 
-Blog.createBlog = function(blog) {
-  debug('createBlog');
-  return storage.createItem('blog', blog);
+Blog.removeBlog = function(id) {
+  debug('removeBlog');
+  return storage.deleteItem('blog', id);
 };
 
 Blog.getBlogList = function() {
   debug('getBlogList');
-  return storage.getItemList('schemaName');
+  return storage.getItemList('blog');
 };
 
 Blog.updateBlog = function(id, content) {
   debug('updateBlog');
-  let blog = storage.fetchItem('blog', id);
-  blog.id = id;
-  for (var key in blog) {
-    blog[key] = content[key];
-  }
-  return storage.createItem('blog', blog);
+  return storage.fetchItem('blog', id)
+  .catch(err => Promise.reject(createError(404, err.message)))
+  .then(blog => {
+    if(!content.name && !content.content) return Promise.reject(createError(400, 'bad request')); //to make sure we're being given a valid update that has either a name or content property
+    for (var key in blog) {
+      if (key === 'id') continue;
+      if (content[key]) blog[key] = content[key];
+    }
+    return storage.createItem('blog', blog);
+  });
 };
-
-module.exports = Blog;

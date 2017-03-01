@@ -55,7 +55,7 @@ Guitar.deleteGuitar = function(id) {
   }
 };
 
-Guitar.fetchIDs = function(schemaName) {
+Guitar.fetchIDs = function() {
   debug('fetchIds');
-  return storage.availIDs(schemaName);
+  return storage.availIDs('guitar');
 };

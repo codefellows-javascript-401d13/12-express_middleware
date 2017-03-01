@@ -3,7 +3,7 @@
 ===
 ## The build out of this API:
 - Created a HTTP server using express
-- Created an object constructor which then creates a simple resourse with three properties
+- Created an object constructor which then creates a simple resource with three properties
 -       1. id
 -       2. author
 -       3. entry
@@ -24,4 +24,4 @@
  - DELETE Request
 
 ## Tests
--Wrote tests to ensure the /api/journal endpoint responds as described for each condition below: 
+-Wrote tests to ensure the /api/journal endpoint responds as described for each condition below:

@@ -22,12 +22,23 @@ journalRouter.get('/api/journal/:id', function(req, res, next) {
   .catch( err => next(err));
 });
 
-journalRouter.put('/api/journal', jsonParser, function(req, res, next){
+journalRouter.delete('/api/journal/:id', function( req, res, next){
+  debug('DELETE: /api/journal/:id');
+
+  Journal.deleteJournal(req.params.id)
+  .then(res.status(204).send('no content'))
+  .catch( err => next(err));
+});
+
+journalRouter.put('/api/journal?=id', jsonParser, function(req, res, next){
   debug('PUT: /api/journal');
 
   Journal.updateJournal(req.query.id, req.body)
   .then(journal => res.json(journal))
   .catch(next);
 });
+
+
+
 
 module.exports = journalRouter;

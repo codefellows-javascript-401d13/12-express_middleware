@@ -4,7 +4,6 @@ const createError = require('http-errors');
 const debug = require('debug')('bike:error-middleware');
 
 module.exports = function(err, req, res, next){
-  console.error(err.message);
 
   if (err.status){
     debug('user error');

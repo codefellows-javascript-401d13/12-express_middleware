@@ -38,11 +38,12 @@ npm start
 
 ### Connecting
 
-If you are using HTTPie, in your terminal window, type the following commands, where '3000' would be replaced with your local environment PORT variable, if configured. Commands can only be sent to the api/bike endpoint
+If you are using HTTPie, in your terminal window, type the following commands, where '3000' would be replaced with your local environment PORT variable, if configured. Commands can only be sent to the api/quiver endpoint
 ```sh
-$  http POST :3000/api/bike name='test name' content='test content' #creates a new bike object and writes it to the fileserver, and returns a unique id
-$ http GET localhost:8000/api/bike/sample-id #returns the name and content of a stored bike object
-$ DELETE localhost:8000/api/bike/sample-id #deletes the bike file from server storage
+$  http POST :3000/api/quiver title='test content' #creates a new quiver object and writes it to the fileserver, and returns a unique id
+$ http GET localhost:8000/api/quiver/sample-id #returns the name and content of a stored quiver object
+$ http POST localhost:8000/api/quiver/sample-id title='updated content' #returns the name and content of a stored quiver object
+$ DELETE localhost:8000/api/quiver/sample-id #deletes the quiver file from server storage
 ```
 
 Sending the following requests to the server will have the results below:

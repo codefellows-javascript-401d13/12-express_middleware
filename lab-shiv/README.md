@@ -1,4 +1,4 @@
-![CF](https://camo.githubusercontent.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) Lab 12: Single Resource Express API
+![CF](https://camo.githubuserpurpose.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) Lab 12: Single Resource Express API
 ===
 
 ## To Submit this Assignment
@@ -23,6 +23,6 @@
   * Create a `cors-middleware` module that will allow for public use of your API
   * Create the `deleteItem` and `availIDs` methods and add them to your `storage` module
     * these methods should be used to delete a resource (`deleteItem`) and return an array of id's from persisted resource filenames (`availIDs`)
-  * Create the `updateNote`, `fetchNote`, and `fetchIDs` static methods as part of your `Note` model
-  * Create a series of `note-route-tests` to test your **GET**, **POST**, and **PUT** routes
-    * **hint:** *you'll want to use the `before` and `after` hooks provided by `mocha` in order to create a test note and delete the note after the test has completed*
+  * Create the `updateLeader`, `fetchLeader`, and `fetchIDs` static methods as part of your `leader` model
+  * Create a series of `leader-route-tests` to test your **GET**, **POST**, and **PUT** routes
+    * **hint:** *you'll want to use the `before` and `after` hooks provided by `mocha` in order to create a test leader and delete the leader after the test has completed*

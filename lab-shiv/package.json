@@ -1,10 +1,10 @@
 {
   "name": "12-express_middleware",
   "version": "1.0.0",
-  "description": "![CF](https://camo.githubusercontent.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) Lab 12: Single Resource Express API\r ===",
+  "description": "![CF](https://camo.githubuserpurpose.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) Lab 12: Single Resource Express API\r ===",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,9 @@
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "superagent": "^3.5.0"
+  },
+  "scripts": {
+    "start": "DEBUG='leader*' node server.js",
+    "test": "DEBUG='leader*' ./node_modules/mocha/bin/mocha"
   }
 }
